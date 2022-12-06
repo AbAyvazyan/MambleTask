@@ -1,0 +1,27 @@
+
+.empty_todo{
+    margin: 15vh auto 0;
+    text-align: center;
+}
+
+.empty_todo_first{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+    color: #ACACAC;
+}
+
+.empty_todo_second{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 54px;
+    letter-spacing: 0.002em;
+    text-transform: capitalize;
+    color: #666666;
+}
