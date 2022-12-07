@@ -5,8 +5,6 @@ body{
 
 .main_part_container{
     width:900px;
-    height: 650px;
-    /*border: 2px solid black;*/
     margin:10vh auto 0;
     padding-top: 5vh;
     position: relative;
@@ -98,6 +96,13 @@ body{
     align-items: center;
 }
 
+.add_text_part_errored{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .text_on_input{
     font-family: 'Poppins';
     font-style: normal;
@@ -106,7 +111,7 @@ body{
     top: -3px;
 }
 
-.text_input_bar{
+.add_text_part input{
     width: 95%;
     height: 50%;
     border-radius: 3px;
@@ -114,6 +119,36 @@ body{
     outline: #FFCD04;
     padding-left: 20px;
 }
+
+.add_text_part_errored input{
+    width: 95%;
+    height: 50%;
+    border-radius: 3px;
+    border: 1px solid #FF3104;
+    outline: #FF3104;
+    padding-left: 20px;
+}
+
+.add_text_part_errored:after{
+    content: "Task content can contain max 54 characters.";
+    position: absolute;
+    width: 271px;
+    height: 18px;
+    left: 0px;
+    bottom: 0;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+    color: #FF3104;
+}
+
 
 
 .add_button_part{
@@ -144,4 +179,51 @@ body{
 
 .section_part div:last-child{
     border-bottom: none;
+}
+
+@media only screen and (max-width: 950px) {
+    .main_part_container {
+        width: 700px;
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
+    .main_part_container {
+        width: 400px;
+    }
+
+    .control_part{
+        display: block;
+    }
+
+    .add_button_part {
+        width: auto;
+        display: block;
+        float: right;
+    }
+
+    .add_text_part{
+        width: 100%;
+    }
+
+    .add_text_part input{
+        width: 100%;
+    }
+
+    .add_text_part_errored{
+        width: 100%;
+    }
+
+    .add_text_part_errored input{
+        width: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .main_part_container {
+        width: 250px;
+    }
+
 }

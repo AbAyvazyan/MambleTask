@@ -2,10 +2,11 @@ import './ToDo.css'
 import {FC} from "react";
 
 export type ToDoType={
-    taskName:string
+    taskName:string,
+    isHidden:boolean
 }
 
-const ToDo:FC<ToDoType> = ({taskName}) =>{
+const ToDo:FC<ToDoType> = ({taskName,isHidden}) =>{
     return(
         <div className={'todo'}>
             <div>
@@ -15,7 +16,8 @@ const ToDo:FC<ToDoType> = ({taskName}) =>{
                 </label>
             </div>
 
-            <div className={'todo_task_name'}>{taskName}</div>
+            {!isHidden ? <div className={'todo_task_name'}>{taskName}</div> :
+            <div className={'todo_task_name_marked'}>{taskName}</div>}
 
             <span className={'delete_icon'}>&#10006;</span>
         </div>

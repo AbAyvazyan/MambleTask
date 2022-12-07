@@ -22,6 +22,16 @@
     color: #666666;
 }
 
+.todo_task_name_marked{
+    font-family: 'Poppins';
+    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: capitalize;
+    color:#ACACAC
+}
+
 .delete_icon{
     position: absolute;
     right: 25px;
