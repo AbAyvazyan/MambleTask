@@ -7,13 +7,12 @@ body{
     width:900px;
     margin:10vh auto 0;
     padding-top: 5vh;
-    position: relative;
+    /*position: ;*/
 }
 
 .hide_completed_button_part{
-    position: absolute;
-    right: 0;
     display: flex;
+    float: right;
     align-items: center;
     cursor: pointer;
 }
@@ -180,6 +179,25 @@ body{
 .section_part div:last-child{
     border-bottom: none;
 }
+
+
+.are_you_sure_button_part div:first-child{
+    text-align: right;
+}
+
+.are_you_sure_button_part div span{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 950px) {
     .main_part_container {

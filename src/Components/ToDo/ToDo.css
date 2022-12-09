@@ -38,3 +38,52 @@
     cursor: pointer;
     color: #174348;
 }
+
+
+.are_you-sure_part{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.are_you-sure{
+    width: 400px;
+    height: 200px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.are_you-sure_text{
+    text-align: center;
+    font-family: 'Poppins';
+    margin: 52px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #008594;
+}
+
+.are_you_sure_button_part{
+    display: flex;
+    gap: 73px;
+}
+
+.are_you_sure_button_part div{
+    width: 50%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #174348;
+}

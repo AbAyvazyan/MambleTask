@@ -1,6 +1,6 @@
 import './MainLayout.css'
 
-import React from "react";
+import React, {useEffect} from "react";
 
 import Empty from "../Empty";
 import ToDo from "../ToDo";
@@ -9,12 +9,13 @@ import {RootState} from "../../app/store";
 
 import {useState} from "react";
 import {useDispatch,useSelector} from "react-redux";
-import {add} from "../../features/toDoSlice/toDoSlice";
+import {add,makeChecked,_delete,hideAll} from "../../features/toDoSlice/toDoSlice";
 
 
 const MainLayout = () =>{
     const [inputValue,setInputValue] = useState('')
     const [inputClass,setInputClass] = useState('add_text_part')
+    const [checkedHideAll,makeCheckedHideAll] = useState(false)
 
     function inputValueChangeHandler(text:string){
         if (text.length<54){
@@ -29,20 +30,27 @@ const MainLayout = () =>{
     const TODO = useSelector((state: RootState) => state.TODO)
     const dispatch = useDispatch()
 
-    console.log(TODO)
+
 
     const onToDOAddButtonHandler=(inputText:string):void=>{
         inputValue.length<54 && inputValue.length>0 ? dispatch(add(inputText)) : <></>
         setInputValue('')
     }
 
+    const hideAllCheckedButtonHandler =()=>{
+        makeCheckedHideAll(!checkedHideAll)
+        dispatch(hideAll())
+    }
+
+
 
     return(
         <>
+
         <div className={'main_part_container'}>
             <div className={'hide_completed_button_part'}>
                 <label className="container">Hide Completed
-                    <input type="checkbox"/>
+                    <input type="checkbox" onChange={()=>hideAllCheckedButtonHandler()}/>
                         <span className="checkmark"></span>
                 </label>
             </div>
@@ -64,12 +72,18 @@ const MainLayout = () =>{
             <div className={'section_part'}>
                 {TODO.length>0?
                     TODO.map((singleOne)=>{
-                            return <ToDo isHidden={singleOne.isHidden} taskName={singleOne.text}/>
+                            return !singleOne.hided?<ToDo key={singleOne.id} id={singleOne.id} onChecked={()=>dispatch(makeChecked(singleOne.id))}
+                                         isHidden={singleOne.isHidden} taskName={singleOne.text} deleteToDo={()=> dispatch(_delete({id:singleOne.id}))}
+                                         checkedHideAll={checkedHideAll}   />:<></>
                         }):
                     <Empty/>
                 }
             </div>
+
+
         </div>
+
+
         </>
     )
 }
