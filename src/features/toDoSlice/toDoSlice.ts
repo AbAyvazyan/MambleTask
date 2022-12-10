@@ -49,9 +49,13 @@ export const toDoSlice = createSlice({
             const index = state.findIndex(elem=>elem.id===action.payload.id)
             state.splice(index,1)
         },
+
+        putLocalValues:(state:todoType[],action:PayloadAction<todoType[]>)=>{
+            state.push(...action.payload)
+        }
 }})
 
 
-export const {add,makeChecked,_delete,hideAll} = toDoSlice.actions
+export const {add,makeChecked,_delete,hideAll,putLocalValues} = toDoSlice.actions
 
 export default toDoSlice.reducer

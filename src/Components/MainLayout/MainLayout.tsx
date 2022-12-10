@@ -9,13 +9,16 @@ import {RootState} from "../../app/store";
 
 import {useState} from "react";
 import {useDispatch,useSelector} from "react-redux";
-import {add,makeChecked,_delete,hideAll} from "../../features/toDoSlice/toDoSlice";
+import {add, makeChecked, _delete, hideAll, putLocalValues, todoType} from "../../features/toDoSlice/toDoSlice";
 
 
 const MainLayout = () =>{
+
+
     const [inputValue,setInputValue] = useState('')
     const [inputClass,setInputClass] = useState('add_text_part')
     const [checkedHideAll,makeCheckedHideAll] = useState(false)
+    const [localValue,setLocalValue] = useState<todoType[] | null>(null)
 
     function inputValueChangeHandler(text:string){
         if (text.length<54){
@@ -43,6 +46,17 @@ const MainLayout = () =>{
     }
 
 
+    useEffect(()=>{
+         const val = localStorage.getItem(('TODO'))
+        if(val && val.length){
+            dispatch(putLocalValues(JSON.parse(val)))
+        }
+    },[])
+
+    useEffect(()=>{
+       localStorage.setItem('TODO',JSON.stringify(TODO))
+
+    },[TODO])
 
     return(
         <>
